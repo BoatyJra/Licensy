@@ -127,5 +127,5 @@ if __name__ == "__main__":
             root_logger.error(f"{exc} Failed to load extension {cog_path}")
             traceback_msg = traceback.format_exception(etype=type(e), value=e, tb=e.__traceback__)
             root_logger.warning(traceback_msg)
-
-    bot.run(os.environ.get(bot.config["token_key"]))
+    print("BOT_TOKEN ", os.environ.get("BOT_TOKEN"))
+    bot.run(os.environ.get("BOT_TOKEN"))
