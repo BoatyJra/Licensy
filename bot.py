@@ -2,6 +2,7 @@ import sys
 import logging
 import asyncio
 import traceback
+import os
 
 import discord
 from discord.ext import commands
@@ -127,4 +128,4 @@ if __name__ == "__main__":
             traceback_msg = traceback.format_exception(etype=type(e), value=e, tb=e.__traceback__)
             root_logger.warning(traceback_msg)
 
-    bot.run(bot.config["token"])
+    bot.run(os.environ.get(bot.config["token_key"]))
