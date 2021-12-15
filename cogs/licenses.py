@@ -372,7 +372,7 @@ class LicenseHandler(commands.Cog):
             # Remove guild license from database, so it can't be redeemed again
             await self.bot.main_db.delete_license(license)
             # Send message notifying user
-            msg = f"รับทราบ! ไอบ๊อกได้เพิ่มโรลชองคุณในห้อง '{guild.name}' ในโรล '{role.name}' ให้กับ {member.mention} เป็นเวลา {license_duration}ชั่วโมง เป็นที่เรียบร้อย!"
+            msg = f"ไอบ๊อกได้เพิ่มโรลให้กับคุณในดิสคอร์ด '{guild.name}' โดยให้โรล '{role.name}' กับ {member.mention} เป็นเวลา {license_duration}ชั่วโมง เป็นที่เรียบร้อย!"
             await ctx.send(embed=success(msg, ctx.me))
         else:
             await ctx.send(embed=failure("ดูเหมือนว่าคุณจะกรอกคีย์ผิดนะ! รบกวนมาใส่ใหม่ด้วยน๊าาา"))
