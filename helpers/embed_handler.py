@@ -50,4 +50,4 @@ def failure(message: str) -> Embed:
     :param message: embed description
     :return: Embed object
     """
-    return simple_embed(message, "Failure", Colour.red())
+    return simple_embed(message, "ผิดพลาด!", Colour.red())
