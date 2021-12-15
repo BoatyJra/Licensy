@@ -32,7 +32,7 @@ def success(message: str, member: Union[Member, User, None]) -> Embed:
                    usually our bot member object from the specific guild.
     :return: Embed object
     """
-    return simple_embed(message, "Success", misc.get_top_role_color(member))
+    return simple_embed(message, "สำเร็จ!", misc.get_top_role_color(member))
 
 
 def warning(message: str) -> Embed:

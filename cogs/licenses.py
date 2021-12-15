@@ -454,9 +454,9 @@ class LicenseHandler(commands.Cog):
             generated = await self.bot.main_db.generate_guild_licenses(num, guild_id, license_role.id, license_duration)
 
         count_generated = len(generated)
-        ctx_msg = (f"Successfully generated {count_generated} licenses for role {license_role.mention}"
-                   f" in duration of {license_duration}h.\n"
-                   f"Sending generated licenses in DM for quick use.")
+        ctx_msg = (f"ไอบ๊อกได้สร้างโค้ดมา {count_generated} โค้ด สำหรับโรล {license_role.mention}"
+                   f" เป็นเวลา {license_duration}ชั่วโมง\n"
+                   f"ไอบ๊อกส่งโค้ดเข้า DM ของคุณแล้วน๊าา")
         await ctx.send(embed=success(ctx_msg, ctx.me))
 
         table = texttable.Texttable(max_width=45)
