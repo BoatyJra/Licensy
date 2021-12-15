@@ -1,5 +1,5 @@
 {
-    "bot_description": "Licensy bot - easily manage expiration of roles with subscriptions!",
+    "bot_description": "เลขาสุดจ๊าบผู้ที่จะมาจัดการสมาชิกในดิสคอร์ดของคุณ !",
     "default_prefix": "!",
     "developer_log_channel_id": 613847243266719755,
     "developers": {

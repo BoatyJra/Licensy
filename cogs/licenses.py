@@ -247,7 +247,7 @@ class LicenseHandler(commands.Cog):
         """
         license_data = await self.bot.main_db.get_license_data(license)
         if license_data is None:
-            await ctx.send(embed=failure("The license key you entered is invalid/deactivated."))
+            await ctx.send(embed=failure("ดูเหมือนว่าคุณจะกรอกคีย์ผิดนะ! รบกวนมาใส่ใหม่ด้วยน๊าาา"))
             return
         license_guild_id, license_role_id = license_data
         await self.activate_license(ctx, license, license_guild_id, license_role_id, ctx.author)
@@ -258,7 +258,7 @@ class LicenseHandler(commands.Cog):
         """Manually add license to member."""
         license_data = await self.bot.main_db.get_license_data(license)
         if license_data is None:
-            await ctx.send(embed=failure("The license key you entered is invalid/deactivated."))
+            await ctx.send(embed=failure("ดูเหมือนว่าคุณจะกรอกคีย์ผิดนะ! รบกวนมาใส่ใหม่ด้วยน๊าาา"))
             return
         license_guild_id, license_role_id = license_data
         await self.activate_license(ctx, license, license_guild_id, license_role_id, member)
@@ -372,10 +372,10 @@ class LicenseHandler(commands.Cog):
             # Remove guild license from database, so it can't be redeemed again
             await self.bot.main_db.delete_license(license)
             # Send message notifying user
-            msg = f"License valid - guild '{guild.name}' adding role '{role.name}' to {member.mention} in duration of {license_duration}h"
+            msg = f"รับทราบ! ไอบ๊อกได้เพิ่มโรลชองคุณในห้อง '{guild.name}' ในโรล '{role.name}' ให้กับ {member.mention} เป็นเวลา {license_duration}ชั่วโมง เป็นที่เรียบร้อย!"
             await ctx.send(embed=success(msg, ctx.me))
         else:
-            await ctx.send(embed=failure("The license key you entered is invalid/deactivated."))
+            await ctx.send(embed=failure("ดูเหมือนว่าคุณจะกรอกคีย์ผิดนะ! รบกวนมาใส่ใหม่ด้วยน๊าาา"))
 
     @commands.command()
     @commands.cooldown(1, 10, commands.BucketType.guild)

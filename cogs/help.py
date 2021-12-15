@@ -30,7 +30,7 @@ class PrettyHelpCommand(commands.MinimalHelpCommand):
         return "Type {0}{1} <command> for more info on a command.\n".format(self.clean_prefix, command_name)
 
     def get_opening_note(self):
-        prefix = "If you like the bot please consider donating or starring the Github repository, ty :)"
+        prefix = "ถ้าชอบหรือสนใจบ็อทตัวนี้ สามารถเรียนรู้เพิ่มเติมใน Github ของ albertopoljak ได้น๊า"
 
         if self.context.guild is None or self.context.author.guild_permissions.administrator:
             return prefix

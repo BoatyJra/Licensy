@@ -76,8 +76,8 @@ class BotInformation(commands.Cog):
     async def invite(self, ctx):
         """Shows bot invite link."""
         invite_link = self._get_bot_invite_link()
-        description = f"Use this **[invite link]({invite_link})** to invite me."
-        await ctx.send(embed=info(description, ctx.me, title="Invite me :)"))
+        description = f"จิ้มลิงก์นี้เยย **[จิ้มตรงนี้]({invite_link})**"
+        await ctx.send(embed=info(description, ctx.me, title="ชวนไอบ๊อกเข้าไปสิ :)"))
 
     def _get_bot_invite_link(self):
         perms = discord.Permissions()
@@ -115,9 +115,9 @@ class BotInformation(commands.Cog):
     @commands.guild_only()
     async def can_manage(self, ctx, role: discord.Role):
         if ctx.me.top_role > role:
-            await ctx.send(embed=success("I can manage that role.", None))
+            await ctx.send(embed=success("ไอบ๊อกจัดการโรลนี้ได้", None))
         else:
-            await ctx.send(embed=failure("No I cannot manage that role."))
+            await ctx.send(embed=failure("ไอบ๊อกจัดการโรลนี้ไม่ได้ T^T"))
 
     @commands.command()
     async def vote(self, ctx):
