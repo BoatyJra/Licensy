@@ -455,7 +455,7 @@ class LicenseHandler(commands.Cog):
 
         count_generated = len(generated)
         ctx_msg = (f"ไอบ๊อกได้สร้างโค้ดมา {count_generated} โค้ด สำหรับโรล {license_role.mention}"
-                   f" เป็นเวลา {license_duration}ชั่วโมง\n"
+                   f" เป็นเวลา {license_duration} ชั่วโมง\n"
                    f"ไอบ๊อกส่งโค้ดเข้า DM ของคุณแล้วน๊าา")
         await ctx.send(embed=success(ctx_msg, ctx.me))
 
