@@ -326,9 +326,9 @@ class LicenseHandler(commands.Cog):
                 except DatabaseMissingData as e:
                     # TODO print role name instead of ID (from e)
                     msg = e.message
-                    msg += (f"\nThe bot did not register {member.mention} in the database with that role but somehow they have it."
-                            "\nThis probably means that they were manually assigned this role without using the bot license system."
-                            "\nHave someone remove the role from them and call this command again.")
+                    msg += (f"\nดูเหมือนไอบ๊อกจะไม่ได้ให้โรลกับ {member.mention} ไว้นะ แต่ทำไมเขาถึงมีโรลนี้กันล่ะ?"
+                            "\nน่าจะมีใครมาเพิ่มโรลเองแน่ๆเลย มาใช้บริการไอบ๊อกสิ อย่ากดเอง โมโหแล้ว!"
+                            "\nลองลบโรลที่มีจากคนๆนั้นทิ้งแล้วลองใช้คำสั่งใหม่อีกครั้งนะ :)")
                     await ctx.send(embed=failure(msg))
                     if ctx.guild is not None:
                         # delete message but only if in guild, can't delete dm messages

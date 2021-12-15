@@ -206,7 +206,7 @@ class DatabaseHandler:
             if row is not None:
                 return row[0]
             else:
-                raise DatabaseMissingData(f"ID {member_id} doesn't exists in database table LICENSED_MEMBERS.")
+                raise DatabaseMissingData(f"ไอดี {member_id} ไม่อยู่ในฐานข้อมูล LICENSED_MEMBERS ของไอบ๊อกนะ!")
 
     async def get_member_data(self, guild_id: int, member_id: int) -> List[Tuple]:
         """
