@@ -129,8 +129,8 @@ class LicenseHandler(commands.Cog):
         else:
             await member.remove_roles(member_role)
             try:
-                expired = f"Your license in guild **{guild}** has expired for the following role: **{member_role}** "
-                await member.send(embed=simple_embed(expired, "Notification", discord.Colour.blue()))
+                expired = f"จะบอกว่าโรล **{member_role}** ของคุณในดิสคอร์ด **{guild}** นั้นหมดอายุแล้วนะ! มาต่อด้วยล่ะ!"
+                await member.send(embed=simple_embed(expired, "ไอบ๊อกแจ้งให้ทราบ", discord.Colour.blue()))
             except Forbidden:
                 # Ignore if user has blocked DM
                 pass
@@ -372,7 +372,7 @@ class LicenseHandler(commands.Cog):
             # Remove guild license from database, so it can't be redeemed again
             await self.bot.main_db.delete_license(license)
             # Send message notifying user
-            msg = f"ไอบ๊อกได้เพิ่มโรลให้กับคุณในดิสคอร์ด '{guild.name}' โดยให้โรล '{role.name}' กับ {member.mention} เป็นเวลา {license_duration}ชั่วโมง เป็นที่เรียบร้อย!"
+            msg = f"ไอบ๊อกได้เพิ่มโรลให้กับคุณในดิสคอร์ด '{guild.name}' โดยให้โรล '{role.name}' กับ {member.mention} เป็นเวลา {license_duration} ชั่วโมง เป็นที่เรียบร้อย!"
             await ctx.send(embed=success(msg, ctx.me))
         else:
             await ctx.send(embed=failure("ดูเหมือนว่าคุณจะกรอกคีย์ผิดนะ! รบกวนมาใส่ใหม่ด้วยน๊าาา"))
