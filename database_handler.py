@@ -62,7 +62,7 @@ class DatabaseHandler:
         :param path: path where database will be created, including file name and extension
         :return: aiosqlite.core.Connection
         """
-        conn = await aiopg.connect(DATABASE_URL, sslmode='require')
+        conn = await aiopg.connect(path)
         await conn.execute("CREATE TABLE GUILDS "
                            "("
                            "GUILD_ID TEXT PRIMARY KEY, "
