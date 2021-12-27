@@ -1,6 +1,6 @@
 {
     "bot_description": "เลขาสุดจ๊าบผู้ที่จะมาจัดการสมาชิกในดิสคอร์ดของคุณ !",
-    "default_prefix": "!",
+    "default_prefix": "(",
     "developer_log_channel_id": 613847243266719755,
     "developers": {
         "BrainDead": 197918569894379520
