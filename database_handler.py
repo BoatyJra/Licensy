@@ -1,6 +1,4 @@
 import logging
-import os
-import psycopg2
 import aiosqlite
 from pathlib import Path
 from datetime import datetime
@@ -10,9 +8,6 @@ from helpers import misc
 from helpers import licence_helper
 from helpers.errors import DefaultGuildRoleNotSet, DatabaseMissingData
 
-DATABASE_URL = os.environ['DATABASE_URL']
-
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 logger = logging.getLogger(__name__)
 

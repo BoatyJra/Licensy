@@ -7,7 +7,7 @@ above will get you naive dates (without timezone). If you know timezone of serve
 Backup(JSONBackup()).backup(123456789, server_timezone=timezone(timedelta(hours=-8)))
 """
 import json
-import psycopg2
+import sqlite3
 from typing import Dict, Any
 from abc import ABC, abstractmethod
 from datetime import datetime, timezone
@@ -55,7 +55,7 @@ class SqliteBackup(BackupAdapter):
 
     @classmethod
     def _create_db_tables(cls, *,  file_name: str):
-        con = psycopg2.connect(file_name)
+        con = sqlite3.connect(file_name)
         cur = con.cursor()
         cur.execute("CREATE TABLE GUILDS"
                     "("
@@ -92,7 +92,7 @@ class SqliteBackup(BackupAdapter):
 
     @classmethod
     def _save_db_data(cls, file_name: str,  data: dict):
-        con = psycopg2.connect(file_name)
+        con = sqlite3.connect(file_name)
         cur = con.cursor()
 
         cur.execute(
@@ -139,7 +139,7 @@ class Backup:
     DATABASE = "main.sqlite3"
 
     def __init__(self, backup_format: BackupAdapter):
-        self._conn = psycopg2.connect(self.DATABASE)
+        self._conn = sqlite3.connect(self.DATABASE)
         self._backup_format = backup_format
 
     def backup(self, guild_id: int, *, file_name: str = "backup", server_timezone: timezone = None):
