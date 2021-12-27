@@ -1,7 +1,5 @@
 import logging
-import os
-import psycopg2
-import aiopg
+import aiosqlite
 from pathlib import Path
 from datetime import datetime
 from typing import Tuple, List, Union
@@ -10,11 +8,9 @@ from helpers import misc
 from helpers import licence_helper
 from helpers.errors import DefaultGuildRoleNotSet, DatabaseMissingData
 
-DATABASE_URL = os.environ['DATABASE_URL']
-
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 logger = logging.getLogger(__name__)
+
 
 class DatabaseHandler:
     DB_PATH = "databases/"
@@ -38,14 +34,14 @@ class DatabaseHandler:
         self.db_name = None
         self.connection = None
 
-    async def _get_connection(self) -> aiopg.core.Connection:
+    async def _get_connection(self) -> aiosqlite.core.Connection:
         """
         Returns a connection to the db, if db doesn't exist create new
         :return: aiosqlite.core.Connection
         """
         path = DatabaseHandler._construct_path(self.db_name)
         if Path(path).is_file():
-            conn = await aiopg.connect(path)
+            conn = await aiosqlite.connect(path)
             return conn
         else:
             logger.warning("Database not found! Creating fresh ...")
@@ -57,12 +53,12 @@ class DatabaseHandler:
         return DatabaseHandler.DB_PATH + db_name + DatabaseHandler.DB_EXTENSION
 
     @staticmethod
-    async def _create_database(path: str) -> aiopg.core.Connection:
+    async def _create_database(path: str) -> aiosqlite.core.Connection:
         """
         :param path: path where database will be created, including file name and extension
         :return: aiosqlite.core.Connection
         """
-        conn = await aiopg.connect(DATABASE_URL, sslmode='require')
+        conn = await aiosqlite.connect(path)
         await conn.execute("CREATE TABLE GUILDS "
                            "("
                            "GUILD_ID TEXT PRIMARY KEY, "
