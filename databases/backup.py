@@ -139,7 +139,7 @@ class Backup:
     DATABASE = "main.sqlite3"
 
     def __init__(self, backup_format: BackupAdapter):
-        self._conn = sqlite3.connect(self.DATABASE)
+        self._conn = psycopg2.connect(self.DATABASE)
         self._backup_format = backup_format
 
     def backup(self, guild_id: int, *, file_name: str = "backup", server_timezone: timezone = None):
