@@ -80,7 +80,7 @@ class BotOwnerCommands(commands.Cog):
         )
         update_channel = self.bot.get_channel(UPDATE_CHANNEL_ID)
         await update_channel.send(msg)
-        await self.bot.change_presence(activity=discord.Game(name="Roles!"))
+        await self.bot.change_presence(activity=discord.Game(name="with your mind!"))
 
     @commands.command(hidden=True)
     @commands.is_owner()

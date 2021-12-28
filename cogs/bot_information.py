@@ -29,7 +29,7 @@ class BotInformation(commands.Cog):
     @tasks.loop(seconds=300.0)
     async def activity_loop(self):
         if self.activity == 0:
-            await self.bot.change_presence(activity=discord.Game(name="Roles!"))
+            await self.bot.change_presence(activity=discord.Game(name="with your mind!"))
             self.activity = 1
         elif self.activity == 1:
             msg = f"{len(self.bot.guilds)} guilds!"
